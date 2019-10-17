@@ -229,7 +229,6 @@ DIST          = ../Simon/HighNote.wav \
 		/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/mkspecs/features/qt_config.prf \
 		/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/mkspecs/macx-clang/qmake.conf \
 		/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/mkspecs/features/spec_post.prf \
-		../Simon/.qmake.stash \
 		/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/mkspecs/features/exclusive_builds.prf \
 		/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/mkspecs/features/mac/sdk.prf \
 		/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/mkspecs/features/toolchain.prf \
@@ -449,7 +448,6 @@ Makefile: ../Simon/Simon.pro /Users/brandonwortmann/Applications/QT/5.13.1/clang
 		/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/mkspecs/features/qt_config.prf \
 		/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/mkspecs/macx-clang/qmake.conf \
 		/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/mkspecs/features/spec_post.prf \
-		.qmake.stash \
 		/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/mkspecs/features/exclusive_builds.prf \
 		/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/mkspecs/features/mac/sdk.prf \
 		/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/mkspecs/features/toolchain.prf \
@@ -651,7 +649,6 @@ Makefile: ../Simon/Simon.pro /Users/brandonwortmann/Applications/QT/5.13.1/clang
 /Users/brandonwortmann/Applications/QT/5.13.1/clang_64/mkspecs/features/qt_config.prf:
 /Users/brandonwortmann/Applications/QT/5.13.1/clang_64/mkspecs/macx-clang/qmake.conf:
 /Users/brandonwortmann/Applications/QT/5.13.1/clang_64/mkspecs/features/spec_post.prf:
-.qmake.stash:
 /Users/brandonwortmann/Applications/QT/5.13.1/clang_64/mkspecs/features/exclusive_builds.prf:
 /Users/brandonwortmann/Applications/QT/5.13.1/clang_64/mkspecs/features/mac/sdk.prf:
 /Users/brandonwortmann/Applications/QT/5.13.1/clang_64/mkspecs/features/toolchain.prf:
@@ -729,7 +726,6 @@ clean: compiler_clean
 
 distclean: clean 
 	-$(DEL_FILE) -r Simon.app
-	-$(DEL_FILE) .qmake.stash
 	-$(DEL_FILE) Makefile
 
 
