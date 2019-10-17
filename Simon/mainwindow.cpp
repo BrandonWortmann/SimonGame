@@ -30,6 +30,7 @@ void MainWindow::on_start_clicked()
     ui->title->setFont(font);
     ui->title->setText("Simon");
     ui->progressBar->setValue(0);
+    ui->progressLabel->setText(QString::number(0) + "%");
     ui->start->setEnabled(false);
     game.startGame();
     timer.singleShot(1000, this, &MainWindow::delayTimerHit);
@@ -105,6 +106,7 @@ void MainWindow::buttonClick(bool color)
         ui->title->setText("You Lose: Your score was " + QString::number(game.getSize() - 1));
         iterations = 0;
         ui->start->setEnabled(true);
+        return;
     }
     ui->progressBar->setValue(percent);
     ui->progressLabel->setText(QString::number(percent) + "%");
