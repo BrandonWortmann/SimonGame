@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>HighNote.wav</file>
+        <file>LowNote.wav</file>
+    </qresource>
+</RCC>

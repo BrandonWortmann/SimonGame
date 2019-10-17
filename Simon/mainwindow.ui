@@ -1060,7 +1060,10 @@
       </layout>
      </item>
      <item>
-      <widget class="QProgressBar" name="progressBar">
+      <widget class="QLabel" name="progressLabel">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
        <property name="minimumSize">
         <size>
          <width>0</width>
@@ -1073,6 +1076,28 @@
          <height>25</height>
         </size>
        </property>
+       <property name="text">
+        <string>0%</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QProgressBar" name="progressBar">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>20</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>20</height>
+        </size>
+       </property>
        <property name="whatsThis">
         <string/>
        </property>
@@ -1081,6 +1106,9 @@
        </property>
        <property name="value">
         <number>0</number>
+       </property>
+       <property name="textVisible">
+        <bool>false</bool>
        </property>
        <property name="invertedAppearance">
         <bool>false</bool>

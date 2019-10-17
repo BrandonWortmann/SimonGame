@@ -35,6 +35,7 @@ public:
     QPushButton *redButton;
     QHBoxLayout *startLayout;
     QPushButton *start;
+    QLabel *progressLabel;
     QProgressBar *progressBar;
     QMenuBar *menubar;
     QStatusBar *statusbar;
@@ -257,12 +258,22 @@ public:
 
         gameLayout->addLayout(startLayout);
 
+        progressLabel = new QLabel(verticalLayoutWidget);
+        progressLabel->setObjectName(QString::fromUtf8("progressLabel"));
+        progressLabel->setEnabled(true);
+        progressLabel->setMinimumSize(QSize(0, 25));
+        progressLabel->setMaximumSize(QSize(16777215, 25));
+        progressLabel->setAlignment(Qt::AlignCenter);
+
+        gameLayout->addWidget(progressLabel);
+
         progressBar = new QProgressBar(verticalLayoutWidget);
         progressBar->setObjectName(QString::fromUtf8("progressBar"));
-        progressBar->setMinimumSize(QSize(0, 25));
-        progressBar->setMaximumSize(QSize(16777215, 25));
+        progressBar->setMinimumSize(QSize(0, 20));
+        progressBar->setMaximumSize(QSize(16777215, 20));
         progressBar->setAutoFillBackground(true);
         progressBar->setValue(0);
+        progressBar->setTextVisible(false);
         progressBar->setInvertedAppearance(false);
 
         gameLayout->addWidget(progressBar);
@@ -291,6 +302,7 @@ public:
         blueButton->setText(QString());
         redButton->setText(QString());
         start->setText(QCoreApplication::translate("MainWindow", "Start", nullptr));
+        progressLabel->setText(QCoreApplication::translate("MainWindow", "0%", nullptr));
 #if QT_CONFIG(whatsthis)
         progressBar->setWhatsThis(QString());
 #endif // QT_CONFIG(whatsthis)

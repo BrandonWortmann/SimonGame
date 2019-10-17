@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QTimer>
+#include <QSound>
 #include "Game.h"
 
 QT_BEGIN_NAMESPACE
@@ -24,10 +25,21 @@ private slots:
 
     void on_redButton_clicked();
 
+    void on_blueButton_pressed();
+
+    void on_blueButton_released();
+
+    void on_redButton_pressed();
+
+    void on_redButton_released();
+
 private:
     Ui::MainWindow *ui;
     Game game;
     QTimer timer;
+    QSound blueNote;
+    QSound redNote;
+    int iterations;
     void flashTimerHit();
     void delayTimerHit();
     void buttonClick(bool color);

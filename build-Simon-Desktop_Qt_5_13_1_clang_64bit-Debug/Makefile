@@ -14,10 +14,10 @@ EQ            = =
 
 CC            = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang
 CXX           = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++
-DEFINES       = -DQT_DEPRECATED_WARNINGS -DQT_QML_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
+DEFINES       = -DQT_DEPRECATED_WARNINGS -DQT_QML_DEBUG -DQT_MULTIMEDIA_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -g $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.12 -Wall -W -fPIC $(DEFINES)
 CXXFLAGS      = -pipe -stdlib=libc++ -g -std=gnu++11 $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.12 -Wall -W -fPIC $(DEFINES)
-INCPATH       = -I../Simon -I. -I/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/lib/QtWidgets.framework/Headers -I/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/lib/QtGui.framework/Headers -I/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/OpenGL.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AGL.framework/Headers -I. -I/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/mkspecs/macx-clang -F/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/lib
+INCPATH       = -I../Simon -I. -I/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/lib/QtMultimedia.framework/Headers -I/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/lib/QtWidgets.framework/Headers -I/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/lib/QtGui.framework/Headers -I/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/lib/QtNetwork.framework/Headers -I/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/OpenGL.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AGL.framework/Headers -I. -I/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/mkspecs/macx-clang -F/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/lib
 QMAKE         = /Users/brandonwortmann/Applications/QT/5.13.1/clang_64/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -40,7 +40,7 @@ DISTNAME      = Simon1.0.0
 DISTDIR = /Users/brandonwortmann/Documents/School/CS\ 3505/Simon/a6-simon-game-BrandonWortmann/build-Simon-Desktop_Qt_5_13_1_clang_64bit-Debug/.tmp/Simon1.0.0
 LINK          = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++
 LFLAGS        = -stdlib=libc++ -headerpad_max_install_names $(EXPORT_ARCH_ARGS) -Wl,-syslibroot,/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.12 -Wl,-rpath,@executable_path/../Frameworks -Wl,-rpath,/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/lib
-LIBS          = $(SUBLIBS) -F/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/lib -framework QtWidgets -framework QtGui -framework QtCore -framework DiskArbitration -framework IOKit -framework OpenGL -framework AGL   
+LIBS          = $(SUBLIBS) -F/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/lib -framework QtMultimedia -framework QtWidgets -framework QtGui -framework QtNetwork -framework QtCore -framework DiskArbitration -framework IOKit -framework OpenGL -framework AGL   
 AR            = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar cq
 RANLIB        = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib -s
 SED           = sed
@@ -54,12 +54,16 @@ OBJECTS_DIR   = ./
 
 SOURCES       = ../Simon/Game.cpp \
 		../Simon/main.cpp \
-		../Simon/mainwindow.cpp moc_mainwindow.cpp
+		../Simon/mainwindow.cpp qrc_Sounds.cpp \
+		moc_mainwindow.cpp
 OBJECTS       = Game.o \
 		main.o \
 		mainwindow.o \
+		qrc_Sounds.o \
 		moc_mainwindow.o
-DIST          = /Users/brandonwortmann/Applications/QT/5.13.1/clang_64/mkspecs/features/spec_pre.prf \
+DIST          = ../Simon/HighNote.wav \
+		../Simon/LowNote.wav \
+		/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/mkspecs/features/spec_pre.prf \
 		/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/mkspecs/qdevice.pri \
 		/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/mkspecs/features/device_config.prf \
 		/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/mkspecs/common/unix.conf \
@@ -474,8 +478,11 @@ Makefile: ../Simon/Simon.pro /Users/brandonwortmann/Applications/QT/5.13.1/clang
 		/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/mkspecs/features/yacc.prf \
 		/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/mkspecs/features/lex.prf \
 		../Simon/Simon.pro \
+		../Simon/Sounds.qrc \
+		/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/lib/QtMultimedia.framework/QtMultimedia.prl \
 		/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/lib/QtWidgets.framework/QtWidgets.prl \
 		/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/lib/QtGui.framework/QtGui.prl \
+		/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/lib/QtNetwork.framework/QtNetwork.prl \
 		/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/lib/QtCore.framework/QtCore.prl
 	$(QMAKE) -o Makefile ../Simon/Simon.pro -spec macx-clang CONFIG+=debug CONFIG+=x86_64 CONFIG+=qml_debug
 /Users/brandonwortmann/Applications/QT/5.13.1/clang_64/mkspecs/features/spec_pre.prf:
@@ -673,8 +680,11 @@ Makefile: ../Simon/Simon.pro /Users/brandonwortmann/Applications/QT/5.13.1/clang
 /Users/brandonwortmann/Applications/QT/5.13.1/clang_64/mkspecs/features/yacc.prf:
 /Users/brandonwortmann/Applications/QT/5.13.1/clang_64/mkspecs/features/lex.prf:
 ../Simon/Simon.pro:
+../Simon/Sounds.qrc:
+/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/lib/QtMultimedia.framework/QtMultimedia.prl:
 /Users/brandonwortmann/Applications/QT/5.13.1/clang_64/lib/QtWidgets.framework/QtWidgets.prl:
 /Users/brandonwortmann/Applications/QT/5.13.1/clang_64/lib/QtGui.framework/QtGui.prl:
+/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/lib/QtNetwork.framework/QtNetwork.prl:
 /Users/brandonwortmann/Applications/QT/5.13.1/clang_64/lib/QtCore.framework/QtCore.prl:
 qmake: FORCE
 	@$(QMAKE) -o Makefile ../Simon/Simon.pro -spec macx-clang CONFIG+=debug CONFIG+=x86_64 CONFIG+=qml_debug
@@ -705,6 +715,7 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
+	$(COPY_FILE) --parents ../Simon/Sounds.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /Users/brandonwortmann/Applications/QT/5.13.1/clang_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../Simon/Game.h ../Simon/mainwindow.h $(DISTDIR)/
 	$(COPY_FILE) --parents ../Simon/Game.cpp ../Simon/main.cpp ../Simon/mainwindow.cpp $(DISTDIR)/
@@ -735,8 +746,15 @@ check: first
 
 benchmark: first
 
-compiler_rcc_make_all:
+compiler_rcc_make_all: qrc_Sounds.cpp
 compiler_rcc_clean:
+	-$(DEL_FILE) qrc_Sounds.cpp
+qrc_Sounds.cpp: ../Simon/Sounds.qrc \
+		/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/bin/rcc \
+		../Simon/LowNote.wav \
+		../Simon/HighNote.wav
+	/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/bin/rcc -name Sounds ../Simon/Sounds.qrc -o qrc_Sounds.cpp
+
 compiler_moc_predefs_make_all: moc_predefs.h
 compiler_moc_predefs_clean:
 	-$(DEL_FILE) moc_predefs.h
@@ -749,9 +767,14 @@ compiler_moc_header_clean:
 moc_mainwindow.cpp: ../Simon/mainwindow.h \
 		/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/lib/QtCore.framework/Headers/QTimer \
+		/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/lib/QtCore.framework/Headers/qtimer.h \
+		/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/lib/QtMultimedia.framework/Headers/QSound \
+		/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/lib/QtMultimedia.framework/Headers/qsound.h \
+		../Simon/Game.h \
 		moc_predefs.h \
 		/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/bin/moc
-	/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/bin/moc $(DEFINES) --include '/Users/brandonwortmann/Documents/School/CS 3505/Simon/a6-simon-game-BrandonWortmann/build-Simon-Desktop_Qt_5_13_1_clang_64bit-Debug/moc_predefs.h' -I/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/mkspecs/macx-clang -I'/Users/brandonwortmann/Documents/School/CS 3505/Simon/a6-simon-game-BrandonWortmann/Simon' -I/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/lib/QtWidgets.framework/Headers -I/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/lib/QtGui.framework/Headers -I/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include -F/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/lib ../Simon/mainwindow.h -o moc_mainwindow.cpp
+	/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/bin/moc $(DEFINES) --include '/Users/brandonwortmann/Documents/School/CS 3505/Simon/a6-simon-game-BrandonWortmann/build-Simon-Desktop_Qt_5_13_1_clang_64bit-Debug/moc_predefs.h' -I/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/mkspecs/macx-clang -I'/Users/brandonwortmann/Documents/School/CS 3505/Simon/a6-simon-game-BrandonWortmann/Simon' -I/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/lib/QtMultimedia.framework/Headers -I/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/lib/QtWidgets.framework/Headers -I/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/lib/QtGui.framework/Headers -I/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/lib/QtNetwork.framework/Headers -I/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include -F/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/lib ../Simon/mainwindow.h -o moc_mainwindow.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -772,7 +795,7 @@ compiler_yacc_impl_make_all:
 compiler_yacc_impl_clean:
 compiler_lex_make_all:
 compiler_lex_clean:
-compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_uic_clean 
+compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_header_clean compiler_uic_clean 
 
 ####### Compile
 
@@ -782,6 +805,11 @@ Game.o: ../Simon/Game.cpp ../Simon/Game.h
 main.o: ../Simon/main.cpp ../Simon/mainwindow.h \
 		/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/lib/QtCore.framework/Headers/QTimer \
+		/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/lib/QtCore.framework/Headers/qtimer.h \
+		/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/lib/QtMultimedia.framework/Headers/QSound \
+		/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/lib/QtMultimedia.framework/Headers/qsound.h \
+		../Simon/Game.h \
 		/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/lib/QtWidgets.framework/Headers/QApplication \
 		/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/lib/QtWidgets.framework/Headers/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../Simon/main.cpp
@@ -789,8 +817,16 @@ main.o: ../Simon/main.cpp ../Simon/mainwindow.h \
 mainwindow.o: ../Simon/mainwindow.cpp ../Simon/mainwindow.h \
 		/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/lib/QtCore.framework/Headers/QTimer \
+		/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/lib/QtCore.framework/Headers/qtimer.h \
+		/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/lib/QtMultimedia.framework/Headers/QSound \
+		/Users/brandonwortmann/Applications/QT/5.13.1/clang_64/lib/QtMultimedia.framework/Headers/qsound.h \
+		../Simon/Game.h \
 		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../Simon/mainwindow.cpp
+
+qrc_Sounds.o: qrc_Sounds.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_Sounds.o qrc_Sounds.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
